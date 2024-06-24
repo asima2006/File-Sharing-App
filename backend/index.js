@@ -76,7 +76,7 @@ app.get('/files/:fileId', async (req, res) => {
 });
 
 // Serve static files from the React frontend app
-app.use(express.static(path.join(__dirname, '/frontend/build')));
+app.use(express.static(path.join('/frontend/build')));
 
 // Catch-all route to serve the frontend
 app.get('*', (req, res) => {

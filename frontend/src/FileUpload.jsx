@@ -1,5 +1,3 @@
-// src/FileUpload.js
-
 import React, { useState } from 'react';
 import axios from 'axios';
 
@@ -23,9 +21,10 @@ const FileUpload = () => {
           'Content-Type': 'multipart/form-data',
         },
       });
-
       setMessage('File uploaded successfully');
-      setFileUrl(res.data.fileUrl);
+      // Ensure the URL uses HTTPS
+      const secureFileUrl = res.data.fileUrl.replace('http://', 'https://');
+      setFileUrl(secureFileUrl);
     } catch (err) {
       console.error(err);
       setMessage('File upload failed');

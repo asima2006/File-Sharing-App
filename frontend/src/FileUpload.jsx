@@ -17,7 +17,8 @@ const FileUpload = () => {
     formData.append('file', file);
 
     try {
-      const res = await axios.post(`${process.env.REACT_APP_API_URL}/upload`, formData, {
+      const apiUrl = "https://file-sharing-app-zphz.onrender.com";
+      const res = await axios.post(`${apiUrl}/upload`, formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },
